@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roastery Coffee</title>
+  <link rel="icon"
+    href="https://roasterycoffee.co.in/wp-content/uploads/2024/07/cropped-cropped-wepik-20240702115430a27c-1.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+      /* line-height: 1.6; */
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: brown;
+    }
+
+    #icon {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #heroheader {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    #heroheader video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 50px 80px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: brown;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .card button:hover {
+      background: #a0522d;
+    }
+
+    #ourcafes,
+    #featured {
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    #ourcafes img {
+      max-width: 600px;
+      width: 100%;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    #whyrostary .grid,
+    #featured .grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    footer {
+      background: #222;
+      color: #ddd;
+      padding: 30px 50px;
+    }
+
+    footer .grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer ul li {
+      margin-bottom: 8px;
+    }
+
+    footer .footer-uniq {
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div id="logo">
+      <img
+        src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/cropped-cropped-wepik-20240702115430a27c-1.png"
+        alt="Roastery Logo">
+    </div>
+    <nav>
+      <a href="#">COFFEE</a>
+      <a href="#">BREW GUIDE</a>
+      <a href="#">CAFE LOCATION</a>
+      <a href="#">ABOUT US</a>
+      <a href="#">JOURNAL</a>
+      <a href="#">MENU</a>
+    </nav>
+    <div id="icon">
+      <a href="#">LOGIN <i class="fas fa-sign-in-alt"></i></a>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-rupee-sign"></i>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="heroheader">
+    <video autoplay muted loop playsinline>
+      <source src="yourvideo.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- New Arrivals -->
+  <section id="newarrivals">
+    <h2>New Arrivals</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2025/08/harley-robusta-scaled-750x563.png" alt="">
+        <h5>Harley Estate (Robusta)</h5>
+        <p>₹350 – ₹1200</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2025/08/CT-Estate-scaled-750x563.png" alt="">
+        <h5>C & T Estate</h5>
+        <p>₹650 – ₹2400</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2025/08/salwara-estate-1-scaled-750x563.png" alt="">
+        <h5>Salawara Estate</h5>
+        <p>₹500 – ₹2200</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2025/08/Unakki-Estate-dark-honey-scaled-750x563.png"
+          alt="">
+        <h5>Unakki Estate (Dark Honey)</h5>
+        <p>₹650 – ₹2400</p>
+        <button>Select Options</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Seller -->
+  <section id="bestseller">
+    <h2>Best Sellers</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/11/Baarbara-Estate-scaled-750x563.jpg" alt="">
+        <h5>Baarbara Estate</h5>
+        <p>₹650 – ₹2400</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/Cold-Brew-Blend-750x563.jpeg" alt="">
+        <h5>Cold Brew Blend</h5>
+        <p>₹550 – ₹2000</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/Espresso-Milk-Blend-750x563.jpeg" alt="">
+        <h5>Espresso Milk Blend</h5>
+        <p>₹525 – ₹2000</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/11/Harley-Estate-scaled-750x563.jpg" alt="">
+        <h5>Harley Estate</h5>
+        <p>₹550 – ₹2000</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/Mandalkhan-Estate-750x563.jpeg" alt="">
+        <h5>Mandalkhan Estate</h5>
+        <p>₹550 – ₹2000</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/Mandalkhan-Estate-Insta-Pour-750x563.jpeg"
+          alt="">
+        <h5>Mandalkhan Insta Pour</h5>
+        <p>₹345</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/Monsoon-Malabar-750x563.jpeg" alt="">
+        <h5>Monsoon Malabar</h5>
+        <p>₹550 – ₹2000</p>
+        <button>Select Options</button>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/Monsoon-Malabar-Insta-Pour-750x563.jpeg"
+          alt="">
+        <h5>Monsoon Malabar Insta Pour</h5>
+        <p>₹345</p>
+        <button>Select Options</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Cafes -->
+  <section id="ourcafes">
+    <h2>Our Cafes</h2>
+    <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/New_Project_18.avif" alt="">
+    <p>Find our outlets across Hyderabad, Kolkata, Delhi, Noida, Lucknow, and Jaipur. Enjoy India’s finest coffees in
+      modern spaces designed with simplicity & sustainability.</p>
+    <button>Visit Our Cafe</button>
+  </section>
+
+  <!-- Why Roastery -->
+  <section id="whyrostary">
+    <h2>Why Roastery?</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/usp1-150x150.avif" alt="">
+        <p><b>India’s Finest Coffees</b></p>
+        <p>We brew only award-winning Indian beans, scoring 80+ globally.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/usp2.avif" alt="">
+        <p><b>Roasted Fresh</b></p>
+        <p>Beans roasted under expert supervision with state-of-the-art equipment.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/usp3.avif" alt="">
+        <p><b>Responsibly Sourced</b></p>
+        <p>Ethical sourcing preserves both environment and bean quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured In -->
+  <section id="featured">
+    <h2>Featured In</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/New_Project_18.avif" alt="">
+        <p><b>Global Launch</b></p>
+        <p>Roastery Coffee House opens first outlet in Finland, taking Indian coffee global.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/New_Project_2-300x55.avif" alt="">
+        <p><b>Brewing at Home</b></p>
+        <p>Lockdown inspired online brewing classes for coffee lovers across India.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/channels4_banner-560x92.jpg" alt="">
+        <p><b>First Nordic Cafe</b></p>
+        <p>First Indian coffee chain to debut in Nordic Europe with a Helsinki store.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/ad-logo-2.png" alt="">
+        <p><b>Redefining Cafes</b></p>
+        <p>Modern Indian minimalism meets local culture in Roastery cafes.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/New_Project_19-1.webp" alt="">
+        <p><b>Top 15 Coffee Brands</b></p>
+        <p>Ranked among India’s best artisanal coffee disruptors by GQ India.</p>
+      </div>
+      <div class="card">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/The-Hindu-Logo-e1721718069712-560x146.jpg"
+          alt="">
+        <p><b>Our Story</b></p>
+        <p>Founded in 2017 with the goal of brewing India’s finest and fair-priced coffee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="grid">
+      <div class="footer-item">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/cropped-wepik-20240702115430a27c.png" alt=""
+          style="height:40px;">
+        <ul>
+          <li><b>Contact</b></li>
+          <li>Call: +91-9059158923</li>
+          <li>Email: support@roasterycoffee.co.in</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <ul>
+          <li><b>Company</b></li>
+          <li>About us</li>
+          <li>Media</li>
+          <li>Cafe Location</li>
+          <li>Brew Guide</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <ul>
+          <li><b>Policies</b></li>
+          <li>Terms & Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Shipping Policy</li>
+          <li>Return Policy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-uniq">
+      <p>&copy; 2025 Roastery Coffee | Powered by Crawl Depth</p>
+    </div>
+  </footer>
+</body>
+
+</html>

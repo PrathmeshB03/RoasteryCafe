@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Locations — Demo</title>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body {
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #222;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.4;
+    }
+
+    /* page wrapper */
+    .page {
+      max-width: 1200px;
+      margin: 34px auto;
+      padding: 0 20px;
+    }
+
+    /* Grid of location cards - 3 columns */
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-bottom: 48px;
+    }
+
+    /* card */
+    .loc-card {
+      position: relative;
+      overflow: hidden;
+      height: 340px;
+      border: 1px solid rgba(0,0,0,0.06);
+      background-size: cover;
+      background-position: center;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .loc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+    }
+
+    /* dark overlay for text readability */
+    .loc-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.45) 60%);
+      z-index: 0;
+    }
+
+    /* Title and button container */
+    .loc-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+    }
+    .loc-title {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    /* view button — centered rectangle */
+    .view-btn {
+      display: inline-block;
+      background: #6a2525; /* maroon-ish */
+      color: #fff;
+      padding: 10px 22px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      border-radius: 2px;
+      box-shadow: 0 6px 18px rgba(106,37,37,0.18);
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .view-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(106,37,37,0.22); }
+
+    /* spacing row between grid groups like screenshot (thin divider) */
+    .section-divider {
+      height: 18px;
+    }
+
+    /********* Footer *********/
+    .footer {
+      background: #f6f6f6;
+      padding: 36px 20px 80px;
+      margin-top: 18px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 220px;
+      gap: 28px;
+      align-items: start;
+      color: #555;
+    }
+
+    .footer .logo {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo-icon {
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:#7c504b;
+      display:inline-block;
+      flex:0 0 56px;
+    }
+    .logo-text { font-weight:700; color:#6b4a48; }
+
+    .footer h4 {
+      font-size:13px;
+      margin-bottom:10px;
+      color:#333;
+      font-weight:700;
+    }
+    .footer ul { list-style:none; }
+    .footer a { color: #444; text-decoration:none; display:block; padding:6px 0; font-size:14px; }
+    .footer a:hover { color: #6b3b3b; }
+
+    /* social icons row */
+    .social-icons { display:flex; gap:10px; }
+    .social-icons a {
+      width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;
+      background:#eee; border-radius:4px; text-decoration:none; color:#444;
+      font-weight:700;
+    }
+
+    /* bottom maroon bar */
+    .bottom-bar {
+      background: #5c2222;
+      color: #fff;padding: 12px 20px;
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* WhatsApp floating button */
+    .whatsapp-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: #25D366;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      z-index: 90;
+      text-decoration: none;
+    }
+    .whatsapp-fab svg { fill: #fff; width:26px; height:26px; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .locations-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .locations-grid { grid-template-columns: 1fr; }
+      .loc-card { height: 300px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 14px; }
+      .bottom-bar { font-size: 13px; flex-direction: column; gap:6px; align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Grid: first row (3 cards) -->
+    <section class="locations-grid">
+      <div class="loc-card" style="background-image: url('https://images.unsplash.com/photo-1505691723518-36a3d1f6b7b9?auto=format&fit=crop&w=1200&q=70');">
+        <div class="loc-content">
+          <div class="loc-title">Hyderabad</div>
+          <a class="view-btn" href="#">VIEW NOW</a>
+        </div>
+      </div>
+
+      <div class="loc-card" style="background-image: url('https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=1200&q=70');">
+        <div class="loc-content">
+          <div class="loc-title">Lucknow</div>
+          <a class="view-btn" href="#">VIEW NOW</a>
+        </div>
+      </div>
+
+      <div class="loc-card" style="background-image: url('https://images.unsplash.com/photo-1524492412937-4961b2ce0f1f?auto=format&fit=crop&w=1200&q=70');">
+        <div class="loc-content">
+          <div class="loc-title">Jaipur</div>
+          <a class="view-btn" href="#">VIEW NOW</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Grid: second row (3 cards) -->
+    <section class="locations-grid">
+      <div class="loc-card" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=70');">
+        <div class="loc-content">
+          <div class="loc-title">Delhi</div>
+          <a class="view-btn" href="#">VIEW NOW</a>
+        </div>
+      </div>
+
+      <div class="loc-card" style="background-image: url('https://images.unsplash.com/photo-1499696010196-0b1f83b7d0f8?auto=format&fit=crop&w=1200&q=70');">
+        <div class="loc-content">
+          <div class="loc-title">Kolkata</div>
+          <a class="view-btn" href="#">VIEW NOW</a>
+        </div>
+      </div>
+
+      <div class="loc-card" style="background-image: url('https://images.unsplash.com/photo-1477973770766-6228305816b0?auto=format&fit=crop&w=1200&q=70');">
+        <div class="loc-content">
+          <div class="loc-title">Noida</div>
+          <a class="view-btn" href="#">VIEW NOW</a>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- .page -->
+
+  <!-- Footer -->
+  <footer class="footer" aria-label="Footer">
+    <div class="footer-inner">
+      <!-- logo / contact -->
+      <div>
+        <div class="logo">
+          <span class="logo-icon" aria-hidden="true"></span>
+          <div>
+            <div class="logo-text">Roastery</div>
+            <div style="font-size:13px;color:#777;margin-top:6px;">speciality coffee</div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px; color:#444;">
+          <strong>Contact</strong>
+          <div style="margin-top:8px; font-size:14px; color:#333;">Call: +91-9059158923</div>
+          <div style="font-size:14px; color:#333; margin-top:6px;">Email: support@roasterycoffee.co.in</div>
+        </div>
+      </div>
+
+      <!-- Company links -->
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Cafe Locations</a></li>
+          <li><a href="#">Brew Guide</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div>
+        <h4>Our Policies</h4>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- social / follow -->
+      <div>
+        <h4>Follow us</h4>
+        <div class="social-icons" style="margin-bottom:16px;">
+          <a href="#" aria-label="facebook">f</a>
+          <a href="#" aria-label="linkedin">in</a>
+          <a href="#" aria-label="instagram">ig</a>
+          <a href="#" aria-label="youtube">yt</a>
+        </div>
+
+        <div style="font-size:13px;color:#666;">Powered by Crawl Depth</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div>© Copyright 2022 | A unit of NISANTPRASHANT</div>
+    <div style="opacity:0.9;">Site crafted with care</div>
+  </div>
+
+  <!-- whatsapp fab -->
+  <a class="whatsapp-fab" href="#" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M12.04 2C6.48 2 2 6.48 2 12c0 1.99.52 3.84 1.42 5.42L2 22l4.72-1.32C8.12 21.48 10 22 12 22c5.52 0 10.04-4.48 10.04-10S17.56 2 12.04 2zM16.7 15.6c-.3.8-1.7 1.6-2.4 1.8-.6.1-1.1.1-1.7-.1-1.6-.5-3.1-1.9-3.6-3.6-.2-.6-.2-1.1-.1-1.7.2-.7.9-2.1 1.8-2.4.4-.1.8 0 1.1.2l.9.6c.2.1.3.2.3.4.1.1 0 .3-.1.4l-.6.8c-.1.2-.1.4 0 .6.4 1.1 1.4 2 2.5 2.5.2.1.4.1.6 0l.8-.6c.1-.1.3-.1.4-.1.2 0 .3.1.4.3l.6.9c.2.4.2.9.1 1.2z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

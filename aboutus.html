@@ -1,0 +1,359 @@
+!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Roastery (Demo)</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    /* Page wrapper */
+    .container {
+      width: min(1150px, 94%);
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .hero {
+      height: 180px;
+      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=60');
+      background-size: cover;
+      background-position: center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+      margin-bottom: 26px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+    }
+    .hero-title {
+      position: relative;
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      z-index: 1;
+    }
+
+    /* ABOUT SECTION - two column */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 38px;
+    }
+    .about .heading {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: #333;
+    }
+    .about p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .about .about-image {
+      width: 100%;
+      height: 320px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    /* FOUNDER SECTION - reversed columns */
+    .founder {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+      margin: 36px 0 52px;
+    }
+    .founder .founder-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .founder .founder-title {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      margin-bottom: 14px;
+      color: #333;
+    }
+    .founder p { color: #555; font-size:15px; line-height:1.8; font-weight:300; }
+
+    /* Cafes grid */
+    .cafes-section {
+      text-align: center;
+      margin: 24px 0 34px;
+    }
+    .cafes-section h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: #333;
+    }
+    .cafes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+    .cafe-card {
+      position: relative;
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow: hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .cafe-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.08));
+      z-index: 0;
+    }
+    .cafe-title {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+
+    /* Footer */
+    .footer {
+      background: #f6f6f6;
+      padding: 36px 0 18px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr 200px;
+      gap: 28px;
+      align-items:start;
+      }
+    .logo {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo .icon {
+      width:56px; height:56px; background:#7c504b; border-radius:50%;
+    }
+    .footer h4 { font-size:13px; margin-bottom:8px; color:#333; font-weight:700; }
+    .footer a { display:block; color:#444; text-decoration:none; padding:6px 0; font-size:14px; }
+    .socials { display:flex; gap:8px; margin-top:6px; }
+    .socials a { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; background:#eee; border-radius:3px; color:#444; text-decoration:none; }
+
+    /* bottom maroon bar */
+    .bottom-bar {
+      background: #5c2222;
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* WhatsApp floating */
+    .whatsapp-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: #25D366;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      z-index: 90;
+      text-decoration: none;
+    }
+    .whatsapp-fab svg { width:28px; height:28px; fill:#fff; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .about, .founder { grid-template-columns: 1fr; }
+      .cafes { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .cafes { grid-template-columns: 1fr; }
+      .hero { height: 140px; }
+      .hero-title { font-size: 22px; }
+      .container { padding: 0 14px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .bottom-bar { flex-direction: column; gap: 6px; align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero" role="img" aria-label="Coffee beans hero">
+    <div class="container">
+      <div class="hero-title">About Us</div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- About -->
+    <section class="about" aria-label="About Roastery">
+      <div>
+        <h2 class="heading">About Roastery Coffee</h2>
+        <p>
+          Founded in 2017 by Nishant Sinha, Roastery Coffee House was created with one goal: to brew India’s finest
+          coffees, and share it with as many people as possible. Over time and with practice, we have been able to
+          build a system where we pay fair if not premium prices to our farmers. We believe it is our responsibility
+          to treasure the value chain from crop to cup. All our coffees have a score of 80 and above — they are fresh
+          in season and roasted to perfection. As we have grown, Roastery has found innovative ways to share our coffees
+          and connect communities across India and beyond.
+        </p>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=60');"></div>
+      </div>
+    </section>
+
+    <!-- Founder -->
+    <section class="founder" aria-label="About Founder">
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <img class="founder-image" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=60" alt="Founder roasting" />
+      </div>
+
+      <div>
+        <h3 class="founder-title">About Founder</h3>
+        <p>
+          Nishant Sinha, a graduate in Hospitality from the Institute of Hotel Management (Jodhpur), has worked in
+          the Indian coffee industry for several years. He started as a barista and is now one of the pioneers in the
+          field of Indian specialty coffee. In 2024, Nishant opened Roastery’s first global outlet in Helsinki, Finland —
+          a milestone for Indian specialty coffee.
+        </p>
+
+        <p style="margin-top:12px;">
+            His vision for Roastery Coffee House is backed by serious research and legwork aiming to expand the brand’s
+          presence across multiple Indian cities and beyond borders. An avid traveler and a true coffee lover, Nishant
+          enjoys talking about coffee and learning more about this beverage while meeting coffee enthusiasts worldwide.
+        </p>
+      </div>
+    </section>
+
+    <!-- Our Cafes -->
+    <section class="cafes-section" aria-label="Our Cafes">
+      <h3>Our Cafes</h3>
+
+      <div class="cafes">
+        <div class="cafe-card" style="background-image: url('https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=1200&q=60');">
+          <div class="cafe-title">Vaishali Nagar</div>
+        </div>
+
+        <div class="cafe-card" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=60');">
+          <div class="cafe-title">Jahangirabad Palace</div>
+        </div>
+
+        <div class="cafe-card" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=60');">
+          <div class="cafe-title">Gomti Nagar</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="logo">
+            <span class="icon" aria-hidden="true"></span>
+            <div>
+              <div style="font-weight:700;color:#6b4a48;">Roastery</div>
+              <div style="font-size:13px;color:#777;margin-top:6px;">speciality coffee</div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px; color:#444;">
+            <strong>Contact</strong>
+            <div style="margin-top:8px; font-size:14px; color:#333;">Call: +91-9059158923</div>
+            <div style="font-size:14px; color:#333; margin-top:6px;">Email: support@roasterycoffee.co.in</div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Media</a>
+          <a href="#">Cafe Locations</a>
+          <a href="#">Brew Guide</a>
+          <a href="#">Contact us</a>
+        </div>
+
+        <div>
+          <h4>Our Policies</h4>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Return Policy</a>
+        </div>
+
+        <div>
+          <h4>Follow us</h4>
+          <div class="socials">
+            <a href="#" aria-label="facebook">f</a>
+            <a href="#" aria-label="linkedin">in</a>
+            <a href="#" aria-label="instagram">ig</a>
+            <a href="#" aria-label="youtube">yt</a>
+          </div>
+
+          <div style="margin-top:18px;color:#666;font-size:13px;">Powered by Crawl Depth</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar container" style="max-width:1150px;">
+      <div>© Copyright 2022 | A unit of NISANTPRASHANT</div>
+      <div>Site crafted with care</div>
+    </div>
+  </footer>
+
+  <!-- Whatsapp FAB -->
+  <a class="whatsapp-fab" href="#" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.48 2 2 6.48 2 12c0 1.99.52 3.84 1.42 5.42L2 22l4.72-1.32C8.12 21.48 10 22 12 22c5.52 0 10.04-4.48 10.04-10S17.56 2 12.04 2zM16.7 15.6c-.3.8-1.7 1.6-2.4 1.8-.6.1-1.1.1-1.7-.1-1.6-.5-3.1-1.9-3.6-3.6-.2-.6-.2-1.1-.1-1.7.2-.7.9-2.1 1.8-2.4.4-.1.8 0 1.1.2l.9.6c.2.1.3.2.3.4.1.1 0 .3-.1.4l-.6.8c-.1.2-.1.4 0 .6.4 1.1 1.4 2 2.5 2.5.2.1.4.1.6 0l.8-.6c.1-.1.3-.1.4-.1.2 0 .3.1.4.3l.6.9c.2.4.2.9.1 1.2z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

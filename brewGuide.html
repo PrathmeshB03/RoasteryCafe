@@ -1,0 +1,220 @@
+Prathmesh, [06-10-2025 15:13]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Guide</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and base styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Merriweather", Georgia, serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(180deg, #222 0%, #2b2b2b 100%);
+      padding: 40px 0 30px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 48px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Intro Section */
+    .intro {
+      background: #f6f6f6;
+      padding: 30px 0 40px;
+      text-align: center;
+    }
+    .intro p {
+      max-width: 1000px;
+      margin: 0 auto;
+      color: #555;
+      font-size: 15px;
+      padding: 0 20px;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px 80px;
+    }
+    .card {
+      position: relative;
+      min-height: 360px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 4px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0) 100%);
+    }
+
+    .card-title {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Playfair Display", serif;
+      font-size: 36px;
+      color: #d4a017;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+      z-index: 1;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-fab {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .whatsapp-fab:hover {
+      transform: translateY(-4px);
+    }
+    .whatsapp-fab svg {
+      fill: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .card {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="hero">
+    <h1>Brew Guide</h1>
+  </header>
+
+  <!-- Intro -->
+  <section class="intro">
+    <p>
+      These brew guides serve as a good place to begin brewing speciality coffee at home.
+      The grinder and grind size you use, coffee you choose and recipe of course — everything plays an
+      important role. Every coffee and its brewing technique is different, so we have listed a standard
+      recipe in the most simplest video form. Play around with your brewer and parameters to get each
+      coffee to taste just the way you like it.
+    </p>
+  </section>
+
+  <!-- Coffee Cards -->
+  <section class="gallery">
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1588854337110-3f2350f2b5f2');">
+      <div class="card-title">COLD BREW</div>
+    </div>
+
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d');">
+
+Prathmesh, [06-10-2025 15:13]
+<div class="card-title">FRENCHPRESS</div>
+    </div>
+
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb');">
+      <div class="card-title">AEROPRESS</div>
+    </div>
+
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');">
+      <div class="card-title">POUROVER</div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a class="whatsapp-fab" href="#">
+    <svg viewBox="0 0 24 24" width="25" height="25">
+      <path d="M12.04 2C6.48 2 2 6.48 2 12c0 1.99.52 3.84 1.42 5.42L2 22l4.72-1.32C8.12 21.48 10 22 12 22c5.52 0 10.04-4.48 10.04-10S17.56 2 12.04 2zM16.7 15.6c-.3.8-1.7 1.6-2.4 1.8-.6.1-1.1.1-1.7-.1-1.6-.5-3.1-1.9-3.6-3.6-.2-.6-.2-1.1-.1-1.7.2-.7.9-2.1 1.8-2.4.4-.1.8 0 1.1.2l.9.6c.2.1.3.2.3.4.1.1 0 .3-.1.4l-.6.8c-.1.2-.1.4 0 .6.4 1.1 1.4 2 2.5 2.5.2.1.4.1.6 0l.8-.6c.1-.1.3-.1.4-.1.2 0 .3.1.4.3l.6.9c.2.4.2.9.1 1.2z"/>
+    </svg>
+  </a>
+   <footer>
+    <div class="footer-grid container">
+      <div>
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/cropped-wepik-20240702115430a27c.png" alt="">
+        <ul>
+          <li><strong>Contact</strong></li>
+          <li>Call: +91-9059158923</li>
+          <li>Email: support@roasterycoffee.co.in</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><strong>Company</strong></li>
+          <li>About us</li>
+          <li>Media</li>
+          <li>Cafe Location</li>
+          <li>Brew Guide</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><strong>Our Policies</strong></li>
+          <li>TERMS &amp; CONDITIONS</li>
+          <li>PRIVACY POLICY</li>
+          <li>SHIPPING POLICY</li>
+          <li>RETURN POLICY</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Subscribe</strong></p>
+        <p>Sign up for our newsletter to get updates and offers.</p>
+        <button class="btn">Sign up</button>
+      </div>
+    </div>
+
+    <div class="copyright container">
+      &copy; Roastery Coffee House — Built with HTML &amp; CSS
+    </div>
+  </footer>
+
+</body>
+</html>

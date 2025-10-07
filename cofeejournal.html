@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Journal / Archive — Demo</title>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    .wrap { max-width: 1200px; margin: 28px auto; padding: 0 18px; }
+
+    /* HERO */
+    .hero {
+      height: 220px;
+      background-image: url('https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=1600&q=60');
+      background-size: cover;
+      background-position: center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+    }
+    .hero h1 {
+      position: relative;
+      z-index:1;
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    /* Posts grid */
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .post {
+      position: relative;
+      height: 440px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      background-size: cover;
+      background-position: center;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+
+    /* translucent title band and centered button */
+    .post .band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 42%;
+      transform: translateY(-50%);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index: 2;
+      pointer-events: none; /* so only button is clickable */
+    }
+    .band .bar {
+      width: 80%;
+      max-width: 720px;
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      padding: 12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events: auto;
+    }
+    .bar .title {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      margin-right: 18px;
+      opacity: 0.98;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    }
+
+    /* view button inside band */
+    .view-btn {
+      background: #6a2525;
+      color: #fff;
+      padding: 8px 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 2px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(106,37,37,0.16);
+    }
+    .view-btn:hover { transform: translateY(-3px); }
+
+    /* small decorative diamond (maroon) like screenshots */
+    .diamond {
+      position: absolute;
+      right: 10%;
+      top: 30%;
+      width: 26px;
+      height: 26px;
+      background: #7a2e2e;
+      transform: rotate(45deg);
+      z-index: 3;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      border-radius: 3px;
+      opacity: 0.95;
+    }
+
+    /* Divider rows spacing (thin) */
+    .row-space { height: 18px; }
+
+    /* Footer */
+    .footer {
+      background: #f6f6f6;
+      padding: 36px 20px 16px;
+      margin-top: 18px;
+    }
+    .footer-grid {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr 200px;
+      gap: 28px;
+      align-items: start;
+      color: #555;
+    }
+    .logo { display:flex; gap:12px; align-items:center; }
+    .logo .icon { width:56px; height:56px; background:#7c504b; border-radius:50%; }
+    .footer h4 { font-size:13px; margin-bottom:8px; color:#333; font-weight:700; }
+    .footer a { display:block; color:#444; text-decoration:none; padding:6px 0; font-size:14px; }
+    .social { display:flex; gap:8px; margin-top:6px; }
+    .social a { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; background:#eee; border-radius:3px; color:#444; text-decoration:none; }
+
+    /* bottom maroon bar */
+    .bottom-bar {
+      background: #5c2222;
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .posts { grid-template-columns: repeat(2, 1fr); }
+      .diamond { right: 6%; top: 28%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .posts { grid-template-columns: 1fr; }
+      .post { height: 380px; }
+      .hero { height: 160px; }
+      .hero h1 { font-size: 22px; }
+      .bar .title { font-size: 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .bottom-bar { flex-direction: column; gap: 6px; align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- hero -->
+    <header class="hero" role="banner">
+      <h1>Journal</h1>
+    </header>
+
+    <!-- posts grid (row 1) -->
+    <section class="posts" aria-label="Journal posts">
+      <article class="post" style="background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=60');">
+        <div class="band">
+          <div class="bar">
+            <div class="title">July'25</div>
+            <a class="view-btn" href="#">VIEW</a>
+          </div>
+        </div>
+        <div class="diamond" aria-hidden="true"></div>
+      </article>
+
+      <article class="post" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=60');">
+        <div class="band">
+          <div class="bar">
+            <div class="title">April'25</div>
+            <a class="view-btn" href="#">VIEW</a>
+          </div>
+        </div>
+        <div class="diamond" aria-hidden="true"></div>
+      </article>
+
+      <article class="post" style="background-image: url('https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1200&q=60');">
+        <div class="band">
+          <div class="bar">
+            <div class="title">February'25</div>
+            <a class="view-btn" href="#">VIEW</a>
+          </div>
+        </div>
+        <div class="diamond" aria-hidden="true"></div>
+      </article>
+    </section>
+
+    <div class="row-space"></div>
+
+    <!-- posts grid (row 2) -->
+    <section class="posts" aria-hidden="false">
+      <article class="post" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=60');">
+        <div class="band">
+          <div class="bar">
+            <div class="title">January'25</div>
+            <a class="view-btn" href="#">VIEW</a>
+          </div>
+        </div>
+        <div class="diamond" aria-hidden="true"></div>
+      </article>
+
+      <article class="post" style="background-image: url('https://images.unsplash.com/photo-1499673610122-01c7122c5dcb?auto=format&fit=crop&w=1200&q=60');">
+        <div class="band">
+          <div class="bar">
+            <div class="title">December'24</div>
+            <a class="view-btn" href="#">VIEW</a>
+          </div>
+        </div>
+        <div class="diamond" aria-hidden="true"></div>
+      </article>
+
+      <article class="post" style="background-image: url('https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1200&q=60');">
+        <div class="band">
+          <div class="bar">
+            <div class="title">November'24</div>
+            <a class="view-btn" href="#">VIEW</a>
+          </div>
+        </div>
+        <div class="diamond" aria-hidden="true"></div>
+      </article>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer" role="contentinfo"><div class="footer-grid">
+        <div>
+          <div class="logo">
+            <div class="icon" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight:700;color:#6b4a48;">Roastery</div>
+              <div style="font-size:13px;color:#777;margin-top:6px;">speciality coffee</div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px; color:#444;">
+            <strong>Contact</strong>
+            <div style="margin-top:8px; font-size:14px; color:#333;">Call: +91-9059158923</div>
+            <div style="font-size:14px; color:#333; margin-top:6px;">Email: support@roasterycoffee.co.in</div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Media</a>
+          <a href="#">Cafe Locations</a>
+          <a href="#">Brew Guide</a>
+          <a href="#">Contact us</a>
+        </div>
+
+        <div>
+          <h4>Our Policies</h4>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Return Policy</a>
+        </div>
+
+        <div>
+          <h4>Follow us</h4>
+          <div class="social">
+            <a href="#" aria-label="facebook">f</a>
+            <a href="#" aria-label="linkedin">in</a>
+            <a href="#" aria-label="instagram">ig</a>
+            <a href="#" aria-label="youtube">yt</a>
+          </div>
+          <div style="margin-top:16px;color:#666;font-size:13px;">Powered by Crawl Depth</div>
+        </div>
+      </div>
+
+      <div class="bottom-bar" style="max-width:1150px;margin:18px auto 0;">
+        <div>© Copyright 2022 | A unit of NISANTPRASHANT</div>
+        <div>Site crafted with care</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

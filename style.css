@@ -1,0 +1,228 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#logo img {
+    width: 60px;
+}
+
+#navbar nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+#navbar nav a:hover {
+    color: #b27a48;
+}
+
+#icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+#icon a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 10px;
+}
+
+#icon i {
+    font-size: 16px;
+    cursor: pointer;
+    color: #444;
+}
+
+/* HERO HEADER */
+#heroheader {
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#heroheader video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 50px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #222;
+    text-align: center;
+}
+
+/* PRODUCT GRID */
+#new\ arrivals, 
+#best\ seller {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.new\ arrivals-items, 
+.best\ seller-item {
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.new\ arrivals-items img,
+.best\ seller-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.new\ arrivals-items:hover,
+.best\ seller-item:hover {
+    transform: translateY(-5px);
+}
+
+button {
+    background: #b27a48;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #8d5f32;
+}
+
+/* OUR CAFES */
+#our\ cafes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+#our\ cafes img {
+    width: 400px;
+    border-radius: 15px;
+}
+
+#our\ cafes p {
+    margin: 15px 0;
+    color: #555;
+}
+
+/* WHY ROASTERY */
+#whyrostary {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.roastary-item {
+    width: 250px;
+}
+
+.roastary-item img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+/* KEY OFFERINGS */
+#key\ offering {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+#key\ offering img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+/* FEATURED */
+#featured {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.featured-item img {
+    max-width: 180px;
+    margin-bottom: 15px;
+}
+
+.featured-item {
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+/* FOOTER */
+#footer {
+    background: #111;
+    color: #ddd;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#footer img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.footer-item ul {
+    list-style: none;
+}
+
+.footer-item ul li {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.footer-uniq {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    font-size: 13px;
+    color: #aaa;
+}
