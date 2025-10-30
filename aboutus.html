@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,6 +7,7 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     /* Reset */
@@ -19,6 +20,52 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
+    }
+
+    /* HEADER (Roastery style) */
+    header {
+      background: linear-gradient(90deg, #5c2222, #7a2e2e);
+      color: #fff;
+      padding: 14px 0;
+    }
+    header .container {
+      width: min(1150px, 94%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    #logo img {
+      height: 54px;
+      width: auto;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 12px;
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+    nav a:hover {
+      opacity: 0.8;
+    }
+    .right-icons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+    .right-icons a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .right-icons i {
+      cursor: pointer;
     }
 
     /* Page wrapper */
@@ -161,7 +208,7 @@
       grid-template-columns: 220px 1fr 1fr 200px;
       gap: 28px;
       align-items:start;
-      }
+    }
     .logo {
       display:flex;
       gap:12px;
@@ -222,11 +269,36 @@
 </head>
 <body>
 
-  <header class="hero" role="img" aria-label="Coffee beans hero">
+  <!-- HEADER -->
+  <header>
+    <div class="container topbar">
+      <div id="logo">
+        <img src="https://roasterycoffee.co.in/wp-content/uploads/2024/07/cropped-cropped-wepik-20240702115430a27c-1.png" alt="roastery logo">
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">HOME</a>
+        <a href="brewGuide.html">BREW GUIDE</a>
+        <a href="Locations.html">CAFE LOCATIONS</a>
+        <a href="aboutus.html">ABOUT US</a>
+        <a href="cofeejournal.html">COFFEE JOURNAL</a>
+        <a href="Cofeemenu.html">ROASTERY CAFE MENU</a>
+      </nav>
+
+      <div class="right-icons">
+        <a href="login.html">LOGIN <i class="fas fa-sign-in-alt"></i></a>
+        <i class="fas fa-shopping-cart" title="cart"></i>
+        <i class="fas fa-rupee-sign" title="currency"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" role="img" aria-label="Coffee beans hero">
     <div class="container">
       <div class="hero-title">About Us</div>
     </div>
-  </header>
+  </section>
 
   <main class="container" role="main">
     <!-- About -->
